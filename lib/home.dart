@@ -299,6 +299,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   },
                 ),
                 IconButton(
+                  icon: Image(image: AssetImage("assets/images/wt.png")),
+                  onPressed: () async {
+                    const url = 'https://wa.me/<7904944059>';
+                    if (await canLaunch(url)) {
+                      await launch(url, forceSafariVC: false);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+                  },
+                ),
+                IconButton(
                   icon: Image(image: AssetImage("assets/images/fcb.png")),
                   onPressed: () async {
                     const url = 'https://facebook.com';
