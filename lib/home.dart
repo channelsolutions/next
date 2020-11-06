@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gplayer/gplayer.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wakelock/wakelock.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -282,6 +283,35 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: _buildDridBuilder(),
           ),
           SizedBox(width: 20),
+          Container(
+            padding: EdgeInsets.all(5.0),
+            child: Row(
+              children: [
+                IconButton(
+                  icon: Image(image: AssetImage("assets/images/you.png")),
+                  onPressed: () async {
+                    const url = 'https://youtube.com';
+                    if (await canLaunch(url)) {
+                      await launch(url, forceSafariVC: false);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+                  },
+                ),
+                IconButton(
+                  icon: Image(image: AssetImage("assets/images/fcb.png")),
+                  onPressed: () async {
+                    const url = 'https://facebook.com';
+                    if (await canLaunch(url)) {
+                      await launch(url, forceSafariVC: false);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+                  },
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

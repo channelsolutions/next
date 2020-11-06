@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  url_launcher: ^5.2.5
+
 
 
 
@@ -69,6 +71,8 @@ flutter:
     - assets/images/shine.png
     - assets/images/spardha.png
     - assets/images/splash.png
+    - assets/images/you.png
+    - assets/images/fcb.png
 
 
   #   - images/a_dot_ham.jpeg
